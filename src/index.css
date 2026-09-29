@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --neon-green: #00FF66;
+    --neon-glow: rgba(0, 255, 102, 0.45);
+    --dark-chocolate: #120905;
+    --dark-chocolate-light: #22120b;
+    --bronze: #c48746;
+    --bronze-glow: rgba(196, 135, 70, 0.3);
+    --obsidian: #050505;
+    --metallic: #E0E7FF;
+  }
+
+  * {
+    border-color: rgba(0, 255, 102, 0.15);
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    width: 100vw;
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #050505;
+  }
+
+  body {
+    color: #E2E8F0;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, .hud-heading {
+    font-family: 'Orbitron', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* MotionSites Entrance Animations Sequence (1-2s total) */
+@keyframes navEntrance {
+  0% { opacity: 0; transform: translateY(-16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes eyebrowEntrance {
+  0% { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes titleMaskEntrance {
+  0% { opacity: 0; transform: translateY(28px) scale(0.97); filter: blur(8px); }
+  60% { opacity: 0.9; filter: blur(2px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+@keyframes descEntrance {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes ctaEntrance {
+  0% { opacity: 0; transform: translateY(14px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.motion-nav {
+  animation: navEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.motion-eyebrow {
+  opacity: 0;
+  animation: eyebrowEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.motion-title {
+  opacity: 0;
+  animation: titleMaskEntrance 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+
+.motion-desc {
+  opacity: 0;
+  animation: descEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+.motion-cta {
+  opacity: 0;
+  animation: ctaEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+}
+
+/* Metallic Typography */
+.metallic-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 35%, #94A3B8 65%, #C48746 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metallic-green-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #00FF66 50%, #05DF72 80%, #C48746 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cyberpunk & MotionSites Utilities */
+.cyber-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 255, 102, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 255, 102, 0.04) 1px, transparent 1px);
+}
+
+.glass-panel {
+  background: rgba(8, 10, 9, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(0, 255, 102, 0.18);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.65);
+}
+
+.glass-nav {
+  background: rgba(5, 5, 5, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 255, 102, 0.15);
+}
+
+.glass-hud-panel {
+  background: rgba(9, 11, 10, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(0, 255, 102, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 255, 102, 0.05);
+}
+
+.neon-glow-green {
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.35), inset 0 0 15px rgba(0, 255, 102, 0.1);
+}
+
+.neon-glow-btn {
+  box-shadow: 0 0 25px rgba(0, 255, 102, 0.4), 0 0 50px rgba(0, 255, 102, 0.15);
+}
+
+.neon-text-glow {
+  text-shadow: 0 0 12px rgba(0, 255, 102, 0.7), 0 0 24px rgba(0, 255, 102, 0.35);
+}
+
+.bronze-text-glow {
+  text-shadow: 0 0 12px rgba(196, 135, 70, 0.6);
+}
+
+/* HUD Corner Brackets */
+.hud-corner {
+  position: relative;
+}
+.hud-corner::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #00FF66;
+  border-left: 2px solid #00FF66;
+  pointer-events: none;
+}
+.hud-corner::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #00FF66;
+  border-right: 2px solid #00FF66;
+  pointer-events: none;
+}
+
+/* Scanline Overlay */
+.scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.3) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #152c1d;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 255, 102, 0.2);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00FF66;
+}
+
+/* Animations */
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.02); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}
